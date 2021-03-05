@@ -1,3 +1,3 @@
 # Numpy Functions
 
-## [`where()`](where)
+## [`where()`](astro-examples.github.io/numpy/where)

@@ -6,6 +6,6 @@ This project represents the ongoing work of students in the Astro 330 class at Y
 
 To access the examples, use the links below. More functions (and libraries) may be added in the future!
 
-### [numpy](numpy/overview) 
+### [numpy](astro-examples.github.io/numpy/overview) 
 ### scipy
 ### matplotlib
