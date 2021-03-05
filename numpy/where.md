@@ -6,9 +6,11 @@ As a general note, `np.where()` returns a *tuple*, but we generally only care ab
 ```
 ind, = np.where(some_array>20)
 ```
-in which the comma after `ind` implies an unpacking of the output (with the second being discared). Equivalent to the above would be calling 
+in which the comma after `ind` implies an unpacking of the output (with the second being discarded). Equivalent to the above would be calling 
 ```
 ind = np.where(some_array>20)[0]
 ```
 
 ## Examples
+
+[back](http://astro-examples.github.io/numpy/overview)
