@@ -1,11 +1,33 @@
-# Usage Examples for the Rest of Us
+# Yale Astronomy Software Workshop Series
 
-We all love the extensive documentation that has been created for `numpy`, `scipy`, and `matplotlib`, the tools of the trade in astronomy. But sometimes the provided examples are... lacking. They generally create arbitrary arrays and perform arbitrary manipulations without commenting or description for what exactly is going on. 
+Computing and Software development is an integral part of astronomical research. While some elements of this, such as programming languages, are sometimes taught in the classroom, there are many soft-skills, tools, and resources that can improve one's efficiency, accuracy, and reproducibility (i.e., quality of life) as a researcher. These tools and skills are often stumbled upon heterogeneously, or passed between individuals. 
 
-This project represents the ongoing work of students in the Astro 330 class at Yale to construct astronomy-oriented, well motivated, and well described example usages for many of these basic (to complicated) functions. 
+The Software Workshop Series aims to discuss these topics, presenting minimal working examples and demonstrations. Each week, we'll cover a topic useful either directly to research coding or to being a scientist and science communicator. Examples include:
 
-To access the examples, use the links below. More functions (and libraries) may be added in the future!
+- optimal workflows, command line tools
+- speeding up code
+- building websites (including with interactive code elements)
+- sphinx/autoapi/documenting and packaging code for distribution 
+- tips/tricks for working on remote servers
+- Github, github actions, etc.
+- matplotlib tricks
 
-### [`numpy`](http://astro-examples.github.io/numpy/overview) 
-### scipy
-### matplotlib
+ad more. 
+
+Each week, we will have 1-2 presenters who've agreed to give a more formal overview / examples of the topic at hand --- but everyone is invited to share their knowledge with one another along the way. All materials generated through this series will be open source and available here on github. 
+
+
+## Session 1: Workflows, Programmatically-generated Presentations
+### 2022-08-23
+
+Presenters: Joel Ong, Juan Guerra, Imad Pasha
+
+In this session we discussed the goals of the series and invited discussion on the topics we should cover that would be most useful. Then Joel presented some examples of his workflow tools, including the use of reveal.js for making presentations with interactive elements. Juan presented some tips for getting up and running with VSCode, and Imad showed how to set up an easy/minimal python package for storing and reusing useful functions/classes.
+
+Relevant repositories:
+- [Package Scaffold](https://github.com/Astro-Examples/utils-package) for Imad's example.
+- [VSCode](https://code.visualstudio.com/) for Juan's example
+- [reveal.js](https://revealjs.com/) for Joel's example.
+
+
+
