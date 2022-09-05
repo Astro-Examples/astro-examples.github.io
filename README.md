@@ -16,18 +16,33 @@ ad more.
 
 Each week, we will have 1-2 presenters who've agreed to give a more formal overview / examples of the topic at hand --- but everyone is invited to share their knowledge with one another along the way. All materials generated through this series will be open source and available here on github. 
 
+## Schedule
+Below is a tenative schedule of topics based on user input. 
 
-## Session 1: Workflows, Programmatically-generated Presentations
+|Date | Session Description | 
+|:---:|:-------------------:|
+|September 20| Continuous Integration / Github Actions / Show your Work!|
+|October 4| Command Line Tools to Improve Your Life |
+|October 14 (FRI)| Web Stuff (markdown->websites,pyscript (python online), etc) Note the special day, due to holiday the following week. |
+| November 1 | Speed & Parallelization (numba, jax, mpi,hpc/grace) | 
+| November 15 | ML in python / pyTorch | 
+| December 6 | Software Development (unit testing, packaging, sphinx/autodocs)|
+
+
+
+
+## Session 1: Workflows
 ### 2022-08-23
 
-Presenters: Joel Ong, Juan Guerra, Imad Pasha
+Presenters: Joel Ong, Juan Guerra
 
-In this session we discussed the goals of the series and invited discussion on the topics we should cover that would be most useful. Then Joel presented some examples of his workflow tools, including the use of reveal.js for making presentations with interactive elements. Juan presented some tips for getting up and running with VSCode, and Imad showed how to set up an easy/minimal python package for storing and reusing useful functions/classes.
+In this session we discussed the goals of the series and invited discussion on the topics we should cover that would be most useful. Then Joel presented some examples of his workflow tools --- in particular, how he writes all his base text for papers, talks, etc., in markdown, then renders them out to the relevant forms (latex,revealjs slides, beamer pdf slides, etc.) 
 
+Juan presented some tips for getting up and running with VSCode.
 Relevant repositories:
-- [Package Scaffold](https://github.com/Astro-Examples/utils-package) for Imad's example.
 - [VSCode](https://code.visualstudio.com/) for Juan's example
-- [reveal.js](https://revealjs.com/) for Joel's example.
+- [reveal.js](https://revealjs.com/) for Joel's example, along with
+- [the gitlab directory](https://gitlab.com/darthoctopus/yale-software-club) for all the examples he showed (also includes the slides he presented).
 
 
 
