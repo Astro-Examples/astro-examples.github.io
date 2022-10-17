@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Imad Pasha">
+  <title>Websites in Markdown</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/white.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Websites in Markdown</h1>
+  <p class="subtitle">Using Jekyll</p>
+  <p class="author">Imad Pasha</p>
+  <p class="date">23rd Aug 2022</p>
+</section>
+
+<section id="overview" class="slide level1">
+<h1>Overview</h1>
+<p>In this slide deck, we’ll go over the basic setup of jekyll-based website design, which allows content to be created primarily in markdown.</p>
+</section>
+<section id="background" class="slide level1">
+<h1>Background</h1>
+<ul>
+<li>Websites come in two forms: <code>static</code> and <code>dynamic</code>.</li>
+<li>The primary difference between these is that a static site comprises a set of <code>html</code> files (with content), <code>css</code> files (with styling), and potentially <code>js</code> files with functions/code for generating content.</li>
+</ul>
+</section>
+<section id="section" class="slide level1">
+<h1></h1>
+<p>A <code>dynamic</code> site, in contrast, has a server backend and generally, for example, involves user interaction (such as completing a purchase).</p>
+<p>Note that <code>static</code> != UN-interactive. <code>Javascript</code> can be used to introduce interactivity to static sites, but this all occurs in the user’s browser (i.e., will not survive the page being refreshed).</p>
+</section>
+<section id="section-1" class="slide level1">
+<h1></h1>
+<p>In this deck, we’ll be discussing <code>static</code> sites only. This use case is generally completely adequate for the purposes of scientific communication (i.e., personal websites, webpages for research, etc.)</p>
+</section>
+<section id="i.-old-school-method" class="slide level1">
+<h1>I. Old School Method</h1>
+</section>
+<section id="section-2" class="slide level1">
+<h1></h1>
+<p>By default, the way to create a website is to write <code>html</code> and <code>css</code> documents which set the content and style of a site, respectively. For example, a threadbare site might look like:</p>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;my site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;This is a header&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section>
+<section id="section-3" class="slide level1">
+<h1></h1>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;my site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;This is a header&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>For those unfamiliar with <code>html</code>, all discrete blocks of “things” are secured between open and close statements, with specific names. <code>&lt;h1&gt;</code> for example is header-1, the largest header size. <code>&lt;/h1&gt;</code> closes the clause (slash name is always how we do this).</p>
+</section>
+<section id="section-4" class="slide level1">
+<h1></h1>
+<p>Meanwhile, the <code>css</code> of the site (cascading style sheet) establishes what fonts, weights, etc., that header will have by default. Without any stylesheet, your site will revert to a simple set of defaults. But setting values isn’t hard:</p>
+<pre><code>.h1 {
+    font-size: 13px;
+    font-family: serif;
+}</code></pre>
+</section>
+<section id="section-5" class="slide level1">
+<h1></h1>
+<p>The focus of this talk is not html/css, however. Many astronomers do not build sites from scratch, but rather pick a template from, e.g., html5up. Here, the <code>css</code> is pre-written, and the <code>html</code> is set up so that one can, for the most part, cut and paste text into placeholder areas to fill out the site.</p>
+</section>
+<section id="jekyll" class="slide level1">
+<h1>Jekyll</h1>
+</section>
+<section id="section-6" class="slide level1">
+<h1></h1>
+<p>Whether or not you build from scratch or use a template, the fact remains that you are directly editing <code>html</code> and <code>css</code> any time you want to make adjustments to the site. In short, <strong>formatting</strong> and <strong>content</strong> are mixed together. New content involves copying sections of <code>html</code> (properly) and inserting new content (text, images, etc.)</p>
+</section>
+<section id="section-7" class="slide level1">
+<h1></h1>
+<p><code>Jekyll</code> aims to fix this anoyance by separating the two steps. <strong>Content</strong> is written in the much friendlier <code>markdown</code> format, with special tags to let <code>jekyll</code> know what type of page formatting to choose.</p>
+<p>Then, <code>jekyll</code> <strong>builds</strong> (or renders) your markdown files into <code>html</code>, inserting all the relevant boilerplate to match the formatting you’ve chosen or set up for your site.</p>
+</section>
+<section id="section-8" class="slide level1">
+<h1></h1>
+<p>You can think of it as semi-dynamic. You set up templates (chunks of html) that are ready to receive content in a certain way, and then your site gets built (no matter how much or little content you have) according to those principles.</p>
+</section>
+<section id="benefits" class="slide level1">
+<h1>Benefits</h1>
+</section>
+<section id="section-9" class="slide level1">
+<h1></h1>
+<p>As discussed, the primary benefit is never mucking around with <code>html</code> and <code>css</code> when you only want to add new content. But there are other benefits. For example, if you want to <em>generate</em> many similar elements (like cards, or pages), as a programmer, you’d love to be able to do this in a <strong>loop</strong>.</p>
+</section>
+<section id="section-10" class="slide level1">
+<h1></h1>
+<p>Using the <code>liquid</code> templating syntax, you can easily create loops, conditionals (if/else), and other logic, right in your webpages.</p>
+</section>
+<section id="section-11" class="slide level1">
+<h1></h1>
+<p>For example, if you had several markdown files with the content about several research projects, your “Research projects” page might actually look like this:</p>
+</section>
+<section id="section-12" class="slide level1">
+<h1></h1>
+<pre><code>---
+layout: page
+---
+{% for proj in site.researchprojects %}
+&lt;h1&gt;&lt;a href=&quot;{{proj.url}}&quot;&gt;{{proj.title}}&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;{{proj.description}}&lt;/p&gt;
+&lt;hr&gt;
+{% endfor %}</code></pre>
+<p>Notice that this page is now responsive to however many projects we have. Also notice that while this might be a <code>markdown</code> page, we can insert <code>html</code> to format it if we wish.</p>
+</section>
+<section id="section-13" class="slide level1">
+<h1></h1>
+<p>Generally, we want to set up our templates <strong>once</strong> using these tricks, so that later, adding a new project just means saving a <code>.md</code> file like this:</p>
+<pre><code>---
+layout: page
+title: My Cool Research Project
+description: A short description of my Project
+---
+Content goes here</code></pre>
+</section>
+<section id="section-14" class="slide level1">
+<h1></h1>
+<p>The other timesaver here is the reusablility of chunks. Sites built with <code>jekyll</code> will look to a folder called <code>_includes/</code> in the site directory. We could add, e.g., <code>footer.html</code> to this folder. It might contain the html/text we want in our site footer.</p>
+</section>
+<section id="section-15" class="slide level1">
+<h1></h1>
+<p>We also have a <code>_layouts/</code> folder. Here, we might have default html templates for different page types, including the “default” page. In the previous slides, you’ll notice I set <code>layout: page</code> in the frontmatter of the markdown. This will look for <code>_layouts/page.html</code>. That might look like:</p>
+<pre><code>{% include header.html %}
+{% include navbar.html %}
+
+{{ Content }}
+
+{% include footer.html %}</code></pre>
+</section>
+<section id="section-16" class="slide level1">
+<h1></h1>
+<pre><code>{% include header.html %}
+{% include navbar.html %}
+
+{{ Content }}
+
+{% include footer.html %}</code></pre>
+<p>Here, anything using <code>layout: page</code> will insert its content (where it says content), but we also pull the html blocks for the header, nav bar, and footer — so now, we only have to edit it in one place.</p>
+</section>
+<section id="section-17" class="slide level1">
+<h1></h1>
+<p>Page layouts can also inherit from each other. For example, a more complex page layout, <code>special.html</code>, might still have</p>
+<pre><code>---
+layout: page
+---</code></pre>
+<p>at the top – any extra things <code>special.html</code> does will be in addition to the stuff <code>page.html</code> already does.</p>
+</section>
+<section id="section-18" class="slide level1">
+<h1></h1>
+<p>That behavior also nests. So <code>super-special.html</code> might set <code>layout: special</code>, and inherit all formatting from <code>special</code> (including it’s inheritance of <code>page</code>).</p>
+<p>One need not utilize this, but it can be handy.</p>
+</section>
+<section id="hosting" class="slide level1">
+<h1>Hosting</h1>
+</section>
+<section id="section-19" class="slide level1">
+<h1></h1>
+<p>One big additional advantage of this type of site is that <code>Github Pages</code> is already configured to build, deploy, and host sites made using this format. When you upload raw files that are setup like a jekyll site (namely, having a <code>_config.yml</code>), <code>Github Actions</code> will automatically build the site to html, then deploy it.</p>
+<p>You don’t <em>have</em> to do this – you can also build locally and just push the site-related files to github. This is needed when you use certain jekyll plugins that github doesn’t support (more on this in a bit).</p>
+</section>
+<section id="themes" class="slide level1">
+<h1>Themes</h1>
+</section>
+<section id="section-20" class="slide level1">
+<h1></h1>
+<p>If this all sounds overwhelming, plenty of people have put together <code>jekyll</code>-themes which have all this stuff set up – so like an html/css template, you simply add your content to the relevant content folder (in markdown), set some site-wide preferences, and be done with it. But learning these tools will let you extend the functionality of ANY html site to be markdown oriented.</p>
+</section>
+<section id="walkthrough" class="slide level1">
+<h1>Walkthrough</h1>
+</section>
+<section id="section-21" class="slide level1">
+<h1></h1>
+<p>We’re now going to build a <em>super simple</em> site with Jekyll+Markdown to see how it’s done.</p>
+<p>Before we get going — while <code>github</code> can build your site for you, if you want to preview it locally, you’ll need a few tools installed.</p>
+<p>You can find instructions here: <a href="https://jekyllrb.com/docs/installation/">https://jekyllrb.com/docs/installation/</a></p>
+</section>
+<section id="directory-structure" class="slide level1">
+<h1>Directory Structure</h1>
+</section>
+<section id="section-22" class="slide level1">
+<h1></h1>
+<p>Our site lives in a folder (likely a git-enabled folder). If you’re hosting on github pages, it’ll be a <name>.github.io folder.</p>
+<p>There are three key items that need to be in this directory when we start</p>
+<ul>
+<li>_config.yml</li>
+<li>Gemfile</li>
+<li>index (index.html, or index.md)</li>
+</ul>
+</section>
+<section id="section-23" class="slide level1">
+<h1></h1>
+<p>The easist way to get going is to run</p>
+<pre><code>jekyll new sitename/</code></pre>
+<p>(any name) which will create a scaffold of the basic directory structure. I’d run this somewhere (scratch), then copy these files into your git-enabled directory.</p>
+</section>
+<section id="section-24" class="slide level1">
+<h1></h1>
+<p>Jekyll will set a default theme (at the moment, minima), and initialize a Gemfile, <code>_config.yml</code>, etc., for you. At the moment, you need to install one extra thing to get it working: <code>webrick</code>, which for some reason isn’t shipping with the version of ruby we installed. Run</p>
+<pre><code>bundle add webrick</code></pre>
+<p>and</p>
+<pre><code>bundle update</code></pre>
+</section>
+<section id="section-25" class="slide level1">
+<h1></h1>
+<p>After this, you should be able to run</p>
+<pre><code>bundle exec jekyll serve --watch</code></pre>
+<p>in your terminal to launch the development server, which will host your site at</p>
+<pre><code>http://127.0.0.1:4000/</code></pre>
+<p>by default, which you can navigate to in your browser. You should see a working site with some placeholder text.</p>
+</section>
+<section id="section-26" class="slide level1">
+<h1></h1>
+<p>Our first updates will be to our <code>_config.yml</code> file, which sets global variables such as the site name. We can change these lines:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Your awesome title</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">email</span><span class="kw">:</span><span class="at"> your-email@example.com</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">: </span><span class="ch">&gt;-</span><span class="at"> </span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  Write an awesome description for your new site here. You can edit this</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  line in _config.yml. It will appear in your document head meta (for</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  Google search results) and in your feed.xml site description.</span></code></pre></div>
+<p>To set these up.</p>
+</section>
+<section id="section-27" class="slide level1">
+<h1></h1>
+<p>Normally, edits to your site content/templates/etc will rebuild automatically while the server is running.</p>
+<p>But changes to <code>_config.yml</code> require you to run <code>ctrl-c</code> in the terminal to halt the server, then the <code>bundle exec jekyll serve --watch</code> command again to restart it (once you’ve saved changes to the config).</p>
+<p>Try it out: Did you manage to change your site name so that it shows up on the webpage?</p>
+</section>
+<section id="section-28" class="slide level1">
+<h1></h1>
+<p>Here’s what our site looks like right now: <img data-src="site_directories.png" alt="directory structure" /></p>
+</section>
+<section id="section-29" class="slide level1">
+<h1></h1>
+<p>The <code>_site/</code> folder contains the built website. Some things are copied wholesale into this folder, such as any css we’ve written. Other things are actually built — e.g., our <code>markdown</code> files are converted to <code>html</code> using whatever layouts or includes we’ve given them.</p>
+<p>We never want to touch anything in <code>_site/</code>: it gets <em>re-built</em> constantly, with files being overwritten. So anything we manually change in this directory will get wiped out.</p>
+</section>
+<section id="section-30" class="slide level1">
+<h1></h1>
+<p>the <code>_posts/</code> directory contains indidual markdown files that will get rendered to pages and then collated on a <code>blog</code> page. By default, the template has this page as its home page. You may not need a blog at all, in which case we can ignore this.</p>
+</section>
+<section id="section-31" class="slide level1">
+<h1></h1>
+<p>The only two pages on our site are the homepage (<code>index.html</code>) and about (<code>about.html</code>), which were built from the markdown files of the same name. Let’s open up <code>index.markdown</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> home</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+</section>
+<section id="section-32" class="slide level1">
+<h1></h1>
+<p>That’s it! It’s an empty file with a specified layout. Try adding some text below the frontmatter:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> home</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">Welcome to my site!</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">&lt;h1&gt;Here&#39;s a header&lt;/h1&gt;</span></span></code></pre></div>
+<p>As soon as you save this, if you refresh your site, you should see this new text appear.</p>
+</section>
+<section id="section-33" class="slide level1">
+<h1></h1>
+<p>But where is the <code>layout</code> for <code>home</code>? As it turns out, because we have a theme specified in the <code>_config.yml</code> which is pre-installed, we don’t actually have a <code>_layouts/</code> folder yet, nor the ability to mess with the theme. Let’s change that.</p>
+</section>
+<section id="section-34" class="slide level1">
+<h1></h1>
+<p>Make a folder called <code>_layouts/</code>, and inside it, make an empty html file called <code>default.html</code>. Let’s fill it in (for now) with some extremely simple code:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;title&gt;</span>{{site.title}}<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h1&gt;</span>{{site.title}}<span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h3&gt;</span>{{site.description}}<span class="kw">&lt;/h3&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</section>
+<section id="section-35" class="slide level1">
+<h1></h1>
+<p>We can access <code>site.title</code> and <code>site.description</code> because variables set in the <code>_config.yml</code> become variables attributed to a special, site-wide variable called <code>site</code>. If we added <code>shortdesc: some text</code> to config, we could call <code>site.shortdesc</code> here in <code>default.html</code>.</p>
+<p>With this file saved, try changing the layout of your index markdown file to <code>index: default</code>, remove the bit of text we’d added, and refresh your site.</p>
+</section>
+<section id="section-36" class="slide level1">
+<h1></h1>
+<p>You should see that your site now indeed has the title and description showing, though with no fancy css around, it’s a little lackluster at the moment — everything will be shoved up into the left hand corner of the window.</p>
+<p>On the plus side, we’ve just made our first layout! And it works!</p>
+</section>
+<section id="section-37" class="slide level1">
+<h1></h1>
+<p>Rather than mess with building a website theme from scratch (call that a separate exercise), I’m now going to grab a <em>pre-made</em> website theme from <a href="https://html5up.net/">html5up</a></p>
+<p>For the sake of simplicty, I’ve chosen the <a href="https://html5up.net/fractal">fractal</a> theme.</p>
+</section>
+<section id="section-38" class="slide level1">
+<h1></h1>
+<p>Copy the <code>assets/</code> folder over into your jekyll site directory. Also, rename the <code>index.html</code> file from the theme to <code>default.html</code>, and copy it into your <code>_layouts/</code> folder, replacing our old (crappy) one.</p>
+<p>Now open the new <code>default.html</code> file, and insert <code>{{site.title}}</code> and <code>{{site.description}}</code> where it currently has the site title (both in the head and body). Reload your site, and <strong>bam</strong>, you should see the fully-responsive nice looking site template, but with the names from your <code>_config.yml</code> in the relevant spots.</p>
+</section>
+<section id="section-39" class="slide level1">
+<h1></h1>
+<p>For reference, mine looks like this: <img data-src="site-theme.jpg" alt="pic of site" /></p>
+</section>
+<section id="section-40" class="slide level1">
+<h1></h1>
+<p>If you explore your site, you’ll see a lot of empty image holders because we haven’t moved the placeholder images (you can if you want), or set new ones. Ignoring that for now, let’s actually edit this page to create itself based on our content.</p>
+<p>Scrolling down, there’s a section of the page with four little separated areas, with alternating left-right aligned text. Rather than typing our text for these directly into the html here (and having to copy/paste html if we want new ones), we’ll use markdown insertion.</p>
+</section>
+<section id="section-41" class="slide level1">
+<h1></h1>
+<p>To do this, we’ll need to make a new <strong>collection</strong>. These are defined in our <code>_config</code> and give us a new thing to iterate over (when we create sets of markdown files).</p>
+<p>In <code>_config.yml</code>, add a new line reading:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collections</span><span class="kw">:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">content-blocks</span><span class="kw">:</span></span></code></pre></div>
+<p>(where here, we’ll refer to content-blocks as these individual panels).</p>
+</section>
+<section id="section-42" class="slide level1">
+<h1></h1>
+<p>Next, make a new folder called <code>_content-blocks/</code> in your site directory (the names must match). Inside this, make a new markdown file like so:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Test Title</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="at">Here&#39;s some content</span></span></code></pre></div>
+<p>(you can name it anything you want, I called mine <code>block1.md</code>)</p>
+</section>
+<section id="section-43" class="slide level1">
+<h1></h1>
+<p>Looking back at our <code>default.html</code>, we can see that the part we actually need to loop over is inside the div block labeled <code>inner alt</code>, which appears to handle displaying the blocks of “spotlight” class divs below. Go ahead and delete all the spotlight blocks after the first one, leaving the rest alone (i.e., the <code>section</code> blocks).</p>
+</section>
+<section id="section-44" class="slide level1">
+<h1></h1>
+<p>Then, around the first section block, we’ll do the following:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>{% for block in site.content-blocks %}</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;section</span><span class="ot"> class=</span><span class="st">&quot;spotlight&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;image&quot;</span><span class="kw">&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;images/pic01.jpg&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span> <span class="kw">/&gt;&lt;/div&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>          <span class="kw">&lt;h3&gt;</span>{{block.title}}<span class="kw">&lt;/h3&gt;</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;p&gt;</span>{{block.content}}<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/section&gt;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>{% endfor %}</span></code></pre></div>
+</section>
+<section id="section-45" class="slide level1">
+<h1></h1>
+<p>If you’ve done everything right, the three blocks of alternating lorum ipsum text should be replaced with one reading “Test Title” and “Here’s some content,” as these were what we entered for the title and content of that <code>block1.md</code> content card.</p>
+<p>I know that might have seemed like quite a bit of effort simply to insert content into our website. But the trick is that NOW, we can easily add as many of those alternating blocks as we want, simply by adding new markdown files to the <code>_content-blocks/</code> folder with new titles and contents. We can have any number of these, and our site will build them out nicely.</p>
+</section>
+<section id="section-46" class="slide level1">
+<h1></h1>
+<p>Try adding a new <code>block2.md</code> with some other filler text, and refreshing to see that it’s been added.</p>
+<p>As a note, by default this will loop over the md files in their system ordering, which is usally alphabetical. There are other ways to set orderings – for example, if you add dates to the frontmatter, it can sort by date.</p>
+</section>
+<section id="section-47" class="slide level1">
+<h1></h1>
+<p>So far we’ve been ignoring images. Images work a bit funny in jekyll. They get stored in a directory accessible from the main directory – many like to create an image folder in <code>assets/</code> for this, or a direct <code>images/</code> folder.</p>
+<p>We can easily add something like <code>img</code> as a frontmatter parameter for any markdown page:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Test Title</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">img</span><span class="kw">:</span><span class="at"> assets/images/some-image.jpg</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="at">Here&#39;s some content</span></span></code></pre></div>
+</section>
+<section id="section-48" class="slide level1">
+<h1></h1>
+<p>And then access it in our <code>default.html</code> block as <code>block.img</code> in our loop.</p>
+<p>But because of the way sites are built, we often need the following format:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;{{baseUrl}}/{{block.img}}&quot;</span><span class="kw">&gt;</span></span></code></pre></div>
+<p>The <code>baseUrl</code> is set in our <code>_config.yml</code> (we can set it to <code>/</code> as a default), and constructs the full link to the image.</p>
+</section>
+<section id="section-49" class="slide level1">
+<h1></h1>
+<p>Create an image folder (either inside assets or just in the home directory), add it as the <code>img</code> parameter of one of your content blocks, and then modify <code>default.html</code> to set the spotlight image src appropriately.</p>
+</section>
+<section id="section-50" class="slide level1">
+<h1></h1>
+<p>What if we want our content blocks to link to their own pages? We can actually set things up so that each <code>block.md</code> type file we make inside <code>_content-blocks/</code> is responsible for <strong>both</strong> setting the text/images on the homepage, <strong>and</strong> for creating standalone pages with more content.</p>
+<p>To do this, we’ll add one extra parameter to our collection in our <code>_config.yml</code>:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collections</span><span class="kw">:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">content-blocks</span><span class="kw">:</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">output</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+</section>
+<section id="section-51" class="slide level1">
+<h1></h1>
+<p>Setting output to true will create a new folder in the output site and build every <code>md</code> file in the <code>_content-blocks/</code> folder to an html file. Luckily, the location of that html file is automatically stored in an attribute called <code>.url</code>.</p>
+<p>After making the change to the config, try modifying <code>default.html</code> so that the title is a link with</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;{{block.url}}&quot;</span><span class="kw">&gt;</span> ... <span class="kw">&lt;/a&gt;</span></span></code></pre></div>
+<p>to point to the output page. Restart the server and you should see the changes!</p>
+</section>
+<section id="section-52" class="slide level1">
+<h1></h1>
+<p>You’ll notice a few things. First: the link works, but there’s no formatting on the page. Second: The content shown is the same as what’s shown on the homepage. But we probably want the content of this page to be much longer than what will fit on the homepage. So instead, we can add</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Here&#39;s the short desc for the homepage</span></span></code></pre></div>
+<p>to the frontmatter (below title), and then replace <code>block.content</code> with <code>block.description</code> in <code>default.html</code>. This frees us up to have the actual content section be the full page.</p>
+</section>
+<section id="section-53" class="slide level1">
+<h1></h1>
+<p>To solve the other issue (no formatting), we need to establish a layout for this single page. Fractal doesn’t have a template for secondary pages (as a single page theme), but I made a quick one by gutting the index.html for all content sections except section 1, and plugging in the title and content as follows:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;one&quot;</span><span class="ot"> class=</span><span class="st">&quot;wrapper style2 special&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;major&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">&lt;h2&gt;</span>{{page.title}}<span class="kw">&lt;/h2&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                <span class="kw">&lt;/header&gt;</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                {{page.content}}</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;/section&gt;</span></span></code></pre></div>
+</section>
+<section id="section-54" class="slide level1">
+<h1></h1>
+<p>One last thing: I need the css for this page, but because the output pages will not be in the site directory, I’m modifiying the links to the css as follows (that way they’ll point to the right place from wherever they are).</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;{{site.baseUrl}}/assets/css/main.css&quot;</span> <span class="kw">/&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;noscript&gt;&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;{{site.baseUrl}}/assets/css/noscript.css&quot;</span> <span class="kw">/&gt;&lt;/noscript&gt;</span></span></code></pre></div>
+</section>
+<section id="section-55" class="slide level1">
+<h1></h1>
+<p>Notice that I used a new keyword: <code>page.title</code> and <code>page.content</code>. When I use this file as the <code>layout</code> for a markdown file, it will use the attributes set up in the front matter. I added this new file to <code>_layouts/</code> as <code>simplepage.html</code>. I can now call it in our <code>block1.md</code> file in the frontmatter:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Test Title</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> A short description</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span><span class="at"> simplepage</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">img</span><span class="kw">:</span><span class="at"> assets/images/cblocks/pic02.jpg</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="at">Here&#39;s some content</span></span></code></pre></div>
+</section>
+<section id="section-56" class="slide level1">
+<h1></h1>
+<p>For those paying attention, the variables on a page accessible as <code>page.XXX</code> are what we were also calling in our loop, in which we assigned the <code>block</code> variable and used <code>block.XXX</code>. They’re the same thing.</p>
+</section>
+<section id="conditionals" class="slide level1">
+<h1>Conditionals</h1>
+</section>
+<section id="section-57" class="slide level1">
+<h1></h1>
+<p>Conditional statements can also be super useful. For example, what if we have some <code>content-blocks</code> which simply don’t have images, and we want to skip that html image tag if that’s the case? We can simply add the following in our <code>default.html</code>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a> <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;image&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a> {% if block.img %}</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;{{site.baseUrl}}/{{block.img}}&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span> <span class="kw">/&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a> {% endif %}</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+</section>
+<section id="section-58" class="slide level1">
+<h1></h1>
+<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a> {% if block.img %}</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;image&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;{{site.baseUrl}}/{{block.img}}&quot;</span><span class="ot"> alt=</span><span class="st">&quot;&quot;</span> <span class="kw">/&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  {% endif %}</span></code></pre></div>
+<p>This if-statement checks if <code>img</code> exists in the frontmatter of the relevant markdown file. If not, it simply won’t try to add the image. Here I don’t specify an <code>else</code>, but one can with <code>{% else $}</code>. Just remember the <code>{% endif %}</code> at the very end.</p>
+</section>
+<section id="includes" class="slide level1">
+<h1>Includes</h1>
+</section>
+<section id="section-59" class="slide level1">
+<h1></h1>
+<p>We mentioned <code>includes</code> earlier. Now we have a reason to use one. We’ve made two layouts here: <code>default</code> and <code>simplepage</code>. Both have a lot of redundant html code present in both. If we wanted to change those common elements, we’d need to edit them in both templates.</p>
+<p>Intead, let’s make a new folder called <code>_includes/</code> in the site directory, and make a new file <code>footer.html</code>. Now cut and paste just that block of html code associated with the footer.</p>
+</section>
+<section id="section-60" class="slide level1">
+<h1></h1>
+<p>Now, in your <code>default.html</code> and <code>simplepage.html</code> pages, replace the footer html code with</p>
+<pre><code>{% include footer.html %}</code></pre>
+<p>Reload, and you’ll find that the footer is still present everywhere. But now, if you go to footer.html and make a change, you’ll see that it is also <em>updated</em> everywhere across the site.</p>
+</section>
+<section id="section-61" class="slide level1">
+<h1></h1>
+<p>To summarize:</p>
+<ul>
+<li>Jekyll lets us atomize elements of webpages and include them in templates that also include content</li>
+<li>The content is defined in markdown, with <code>yml</code>-style frontmatter.</li>
+<li>we can have multiple page layouts defined (which can take advantage of includes, or be built on other layouts)</li>
+<li>We can dynamically have the site create elements based on looping over md files, and can change behavior based on conditionals.</li>
+</ul>
+</section>
+<section id="pushing-to-github" class="slide level1">
+<h1>Pushing to Github</h1>
+</section>
+<section id="section-62" class="slide level1">
+<h1></h1>
+<p>Once you’re ready to publish your site, edit you <code>_config.yml</code> by commenting out the baseUrl, and setting the url equal to the full location of the site (e.g., <code>https://username.github.io</code>). You can then push — note that jekyll sets up a <code>.gitignore</code> to, for example, not upload <code>_site/</code> (since github will build it).</p>
+<p>Checking github, you should see your uploaded files, and clicking on the <strong>Actions</strong> tab, you should see it start a build process and once it’s registered as done, you should be able to access your site!</p>
+</section>
+<section id="section-63" class="slide level1">
+<h1></h1>
+<p>If you are having a lot of issues getting this working, or your site uses plugins not supported by github, you can instead push just the <code>_site/</code> contents to a special branch, and have pages deploy off of that branch. I recommend installing</p>
+<pre><code>ghp-import</code></pre>
+<p>for this.</p>
+</section>
+<section id="section-64" class="slide level1">
+<h1></h1>
+<p>Once installed, from in your site directory, you can run</p>
+<pre><code>ghp-import  -n -p -f _site</code></pre>
+<p>which will push the contents of <code>_site</code> to a branch called <code>gh-pages</code>. The flags tell github not to try to build the site on its end. Then, from the repo’s settings, under pages, set <code>deploy from branch</code> and pick the new branch. After a few minutes, your site should be working.</p>
+</section>
+<section id="section-65" class="slide level1">
+<h1></h1>
+<p>I’m going to stop here, but there’s plenty more to explore. <code>Liquid</code> can handle arrays and basic data calculations. You can tie in <code>javascript</code> functions for some interactivity. Etc.</p>
+<p>The final version of our site, as we got to in this tutorial, is available to download and play with.</p>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Transition speed
+        transitionSpeed: 'fast', // default/fast/slow
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

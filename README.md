@@ -22,11 +22,11 @@ Below is a tenative schedule of topics based on user input.
 |Date | Session Description | 
 |:---:|:-------------------:|
 |September 20| Continuous Integration / Github Actions / Show your Work!|
-|October 4| Command Line Tools to Improve Your Life |
+|October 4| Speeding up Python with numba and jax |
 |October 14 (FRI)| Web Stuff (markdown->websites,pyscript (python online), etc) Note the special day, due to holiday the following week. |
-| November 1 | Speed & Parallelization (numba, jax, mpi,hpc/grace) | 
+| November 1 | Python Software Development (unit testing, packaging, sphinx)| 
 | November 15 | ML in python / pyTorch | 
-| December 6 | Software Development (unit testing, packaging, sphinx/autodocs)|
+| December 6 |TBD|
 
 
 
@@ -44,5 +44,10 @@ Relevant repositories:
 - [reveal.js](https://revealjs.com/) for Joel's example, along with
 - [the gitlab directory](https://gitlab.com/darthoctopus/yale-software-club) for all the examples he showed (also includes the slides he presented).
 
+## Session 2: 
 
+## Session 3: Speeding up Python 
+
+## Session 4: Website Development
+The repo containing the example files for this session are [here](https://github.com/Astro-Examples/website-building). It contains both the index/css we were working on from scratch, along with the jekyll-fied example. You can also find the [slide deck](websites/jekyll.html) we presented. 
 
