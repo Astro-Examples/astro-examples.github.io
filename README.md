@@ -47,6 +47,7 @@ Relevant repositories:
 ## Session 2: 
 
 ## Session 3: Speeding up Python 
+Tim's slides can be found [here](https://docs.google.com/presentation/d/1k6ykPod4kxGKPLkbk5-nosdyArgCFOO31-2GTt-McGo/edit?usp=sharing), and the example collab notebook can be copied from [here](https://colab.research.google.com/drive/12Rj6dnvVESCNxbIZAex1rKB60By-_sYA?usp=sharing).
 
 ## Session 4: Website Development
 The repo containing the example files for this session are [here](https://github.com/Astro-Examples/website-building). It contains both the index/css we were working on from scratch, along with the jekyll-fied example. You can also find the [slide deck](websites/jekyll.html) we presented. 
